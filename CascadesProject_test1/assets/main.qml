@@ -16,7 +16,7 @@ Page {
                 // Use a standard list item to display the data in the data
                 // model
                 StandardListItem {
-                    reserveImageSpace: false
+                    // reserveImageSpace: false
                     title: ListItemData.title
                     description: ListItemData.pubDate
                 }
@@ -34,7 +34,8 @@ Page {
             sortedAscending: false
             grouping: ItemGrouping.None 
         },
-        DataSource {
+        DataSource 
+        {
             id: dataSource
             
             // Load the XML data from a remote data source, specifying that the
@@ -43,16 +44,17 @@ Page {
             query: "/rss/channel/item"
             type: DataSourceType.Xml
             
-            onDataLoaded: {
+            onDataLoaded: 
+            {
                 // After the data is loaded, clear any existing items in the data
                 // model and populate it with the new data
                 dataModel.clear();
                 dataModel.insertList(data)
             }
-        }
-};
+        }]
 
-	onCreationCompleted: {
+	onCreationCompleted: 
+	{
 	// When the top-level Page is created, direct the data source to start
 	// loading data
 	dataSource.load();
